@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/PrimeFlix-Movie-App/static/css/main.80cccde6.css",
+    "main.js": "/PrimeFlix-Movie-App/static/js/main.23fbfe8c.js",
+    "static/js/787.d4aba7ab.chunk.js": "/PrimeFlix-Movie-App/static/js/787.d4aba7ab.chunk.js",
+    "static/media/logo.svg": "/PrimeFlix-Movie-App/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/PrimeFlix-Movie-App/index.html",
+    "main.80cccde6.css.map": "/PrimeFlix-Movie-App/static/css/main.80cccde6.css.map",
+    "main.23fbfe8c.js.map": "/PrimeFlix-Movie-App/static/js/main.23fbfe8c.js.map",
+    "787.d4aba7ab.chunk.js.map": "/PrimeFlix-Movie-App/static/js/787.d4aba7ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.80cccde6.css",
+    "static/js/main.23fbfe8c.js"
+  ]
+}
