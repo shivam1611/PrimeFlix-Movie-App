@@ -3,7 +3,7 @@ import React from "react";
 function Navbar({ query, setQuery, total_movie, movies }) {
   return (
     <div className="navbar">
-      <div className="logo">PETFLIX</div>
+      <div className="logo">PRIMEFLIX</div>
       <form action="backend.php" className="search-section">
         <input
           value={query}

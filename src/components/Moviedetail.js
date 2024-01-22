@@ -20,7 +20,7 @@ function Moviedetail({
       imdbRating: detail.imdbRating,
     };
     !isWatched && addWatchedMovie(Movie);
-    setSelectedId(null);
+    // setSelectedId(null);
   }
 
   // function addwatchMovie()

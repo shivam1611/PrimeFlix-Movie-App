@@ -109,6 +109,9 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  /* margin: 10rem auto; */
+  right: 5rem;
+  bottom: 2rem;
 }
 /* error component styling  */
 
@@ -197,7 +200,7 @@
   height: 35rem;
   /* padding: 1rem; */
   border-radius: 0.3rem;
-  /* position: relative; */
+  position: relative;
   background-color: var(--dark);
 }
 .movie-box {
@@ -212,7 +215,7 @@
 /* Movie Detail styling  */
 .movie-detail {
   color: white;
-  position: relative;
+  /* position: relative; */
   padding: 0;
   width: 100%;
 }
