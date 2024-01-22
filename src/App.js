@@ -7,6 +7,8 @@ import Moviedetail from "./components/Moviedetail";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
 import WatchedMovie from "./components/WatchedMovie";
+import WatchedBox from "./components/WatchedBox";
+import WatchedStatus from "./components/WatchedStatus";
 
 function App() {
   // ################## Global States ###################################
@@ -16,6 +18,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  const [watchedMovie, setWatchedMovie] = useState([]);
+  const [showWatchedMovie, setShowWatchedMovie] = useState(false);
 
   // Function to select the movie
 
@@ -23,10 +27,15 @@ function App() {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
   }
 
-  // function that will close the detail on clicking close icon
+  // function to add movie to watch list
+  function addWatchedMovie(movie) {
+    setWatchedMovie((watchedMovie) => [movie, ...watchedMovie]);
+  }
 
-  function closeDetail() {
-    setSelectedId(null);
+  function deleteMovie(id) {
+    setWatchedMovie((watchedMovie) =>
+      watchedMovie.filter((movie) => movie.movieID !== id)
+    );
   }
 
   useEffect(
@@ -83,11 +92,28 @@ function App() {
           />
         </div>
         <div className="box">
-          {selectedId && (
+          {selectedId ? (
             <Moviedetail
               selectedId={selectedId}
               setSelectedId={setSelectedId}
+              watchedMovie={watchedMovie}
+              addWatchedMovie={addWatchedMovie}
             />
+          ) : (
+            <>
+              <WatchedStatus
+                watchedMovie={watchedMovie}
+                setShowWatchedMovie={setShowWatchedMovie}
+                showWatchedMovie={showWatchedMovie}
+              />
+
+              <WatchedBox
+                watchedMovie={watchedMovie}
+                showWatchedMovie={showWatchedMovie}
+                setWatchedMovie={setWatchedMovie}
+                deleteMovie={deleteMovie}
+              />
+            </>
           )}
         </div>
       </div>

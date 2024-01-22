@@ -1,10 +1,29 @@
 import React, { useEffect, useState } from "react";
 import Loader from "./Loader";
 
-function Moviedetail({ selectedId, setSelectedId }) {
+function Moviedetail({
+  selectedId,
+  setSelectedId,
+  addWatchedMovie,
+  watchedMovie,
+}) {
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(false);
 
+  function handleAdd() {
+    const Movie = {
+      movieID: selectedId,
+      poster: detail.Poster,
+      title: detail.Title,
+      runtime: detail.Runtime,
+      year: detail.Year,
+      imdbRating: detail.imdbRating,
+    };
+    !isWatched && addWatchedMovie(Movie);
+    setSelectedId(null);
+  }
+
+  // function addwatchMovie()
   useEffect(
     function () {
       async function getDetail() {
@@ -20,6 +39,12 @@ function Moviedetail({ selectedId, setSelectedId }) {
     },
     [selectedId]
   );
+
+  //  will check whether the movie is already added in the watched list
+  const isWatched = watchedMovie
+    .map((movie) => movie.movieID)
+    .includes(selectedId);
+
   return (
     <div className={`box movie-detail`}>
       {loading ? (
@@ -43,12 +68,16 @@ function Moviedetail({ selectedId, setSelectedId }) {
             </div>
           </div>
           <div className="add-to-watch-section">
-            <button className="add-watch-btn">
-              <span className="icon">
-                <i class="fa-solid fa-plus"></i>
-              </span>
-              Add to Watchlist
-            </button>
+            {!isWatched ? (
+              <button className="add-watch-btn" onClick={() => handleAdd()}>
+                <span className="icon">
+                  <i class="fa-solid fa-plus"></i>
+                </span>
+                {isWatched ? "Added to Watch List" : "Add to Watchlist"}
+              </button>
+            ) : (
+              <p className="added-status">Added to Watch List</p>
+            )}
           </div>
           <div className="bottom-section">
             <p className="detail-para">{detail.Plot}</p>
