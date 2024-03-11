@@ -7,9 +7,10 @@ function Movielist({ movies, isLoading, error, selectMovie, selectedId }) {
   // console.log(movies);
   return (
     <ul className="movie-box">
+      
       {isLoading && <Loader />}
       {!isLoading &&
-        !error &&
+        !error && 
         movies?.map((movie) => (
           <Card
             img={movie.Poster}

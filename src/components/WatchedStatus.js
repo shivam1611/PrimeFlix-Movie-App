@@ -10,7 +10,7 @@ function WatchedStatus({
       className="watch-status-section"
       onClick={() => setShowWatchedMovie((show) => !show)}
     >
-      <h1>Your Watchlist 🍿</h1>
+      <h1 className="watched-title">Your Watchlist 🍿</h1>
       <div className=" toggle-icon">
         {showWatchedMovie ? (
           <i class="fa-solid fa-angle-up"></i>
